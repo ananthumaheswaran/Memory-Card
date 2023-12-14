@@ -1,8 +1,8 @@
 import { useState } from "react";
 
-const Pokemon = () => {
+const Cards = () => {
   const [pokemon, setPokemon] = useState([]);
   return <div>Pokemon</div>;
 };
 
-export default Pokemon;
+export default Cards;
