@@ -1,11 +1,10 @@
-import Pokemon from "./components/Pokemon";
-
+import Cards from "./components/Cards";
 function App() {
   return (
     <>
       <div className="game-home">
         <h1>Application Under Construction</h1>
-        <Pokemon />
+        <Cards />
       </div>
     </>
   );
