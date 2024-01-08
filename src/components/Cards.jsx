@@ -1,5 +1,5 @@
 const Cards = () => {
-  return <div>Pokemon</div>;
+  return <div className="cards">Pokemon</div>;
 };
 
 export default Cards;
