@@ -5,3 +5,25 @@
 body {
   @apply h-[100vh] bg-gif bg-center bg-cover;
 }
+
+.btn {
+  @apply bg-blue-600 hover:bg-blue-700 m-10 p-2 rounded-[4px] text-white w-24 h-10;
+}
+
+.card {
+  @apply bg-white w-40 h-60 flex items-center flex-row m-5;
+}
+
+.card-container {
+  @apply flex items-center justify-center;
+}
+
+.menu {
+  @apply flex items-center justify-center mx-80 my-20 p-60 rounded-xl bg-blend-saturation bg-white flex-row;
+}
+
+.easy-level,
+.medium-level,
+.hard-level {
+  @apply flex items-start;
+}
