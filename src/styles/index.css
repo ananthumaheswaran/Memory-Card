@@ -3,27 +3,39 @@
 @tailwind utilities;
 
 body {
-  @apply h-[100vh] bg-gif bg-center bg-cover;
+  @apply h-[100vh] bg-gif bg-center bg-cover flex items-center justify-center;
 }
 
 .btn {
-  @apply bg-blue-600 hover:bg-blue-700 m-10 p-2 rounded-[4px] text-white w-24 h-10;
+  @apply bg-yellow-400 hover:bg-yellow-500  p-1 rounded-3xl text-black text-xl w-32 h-10;
+}
+
+.btn-exit {
+  @apply w-20 flex items-center justify-center h-10 m-5 bg-yellow-400 hover:bg-yellow-500 rounded-3xl text-black;
 }
 
 .card {
-  @apply bg-white w-40 h-60 flex items-center flex-row m-5;
+  @apply bg-yellow-200 w-40 h-60 flex items-center justify-center  flex-col text-base font-semibold uppercase m-5 rounded-xl;
 }
-
+.loading {
+  @apply font-semibold text-2xl text-white;
+}
 .card-container {
   @apply flex items-center justify-center;
 }
 
 .menu {
-  @apply flex items-center justify-center mx-80 my-20 p-60 rounded-xl bg-blend-saturation bg-white flex-row;
+  @apply flex items-center justify-center mx-52 w-[1200px] h-[800px] my-20 p-60 rounded-xl bg-blend-saturation bg-transparent  border-2 border-white flex-row;
 }
 
-.easy-level,
+.fetched-cards {
+  @apply flex items-center justify-center w-[1000px] h-[700px];
+}
+/* .fetched-section {
+  @apply w-[1200px] h-[800px];
+} */
+/* .easy-level,
 .medium-level,
 .hard-level {
   @apply flex items-start;
-}
+} */
