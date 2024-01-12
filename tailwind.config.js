@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        gif: "url('public/images/pokemon.gif')",
+        gif: "url('public/images/pokeBackground.png')",
       }),
     },
   },
