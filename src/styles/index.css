@@ -1,35 +1,46 @@
+@import url("https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@500&display=swap");
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
-  @apply h-[100vh] bg-gif bg-center bg-cover flex items-center justify-center;
+  @apply h-[100vh] min-w-[280px] bg-gif bg-center bg-cover flex items-center justify-center font-Pixelify text-white;
+}
+
+.header {
+  @apply flex items-center justify-center w-full;
+}
+
+.header-title {
+  @apply text-5xl;
 }
 
 .btn {
-  @apply bg-yellow-400 hover:bg-yellow-500  p-1 rounded-3xl text-black text-xl w-32 h-10;
+  @apply bg-transparent  border-2 border-dotted border-black text-black  p-1 rounded-sm  text-2xl w-32 h-10;
 }
 
 .btn-exit {
-  @apply w-20 flex items-center justify-center h-10 m-5 bg-yellow-400 hover:bg-yellow-500 rounded-3xl text-black;
+  @apply w-20 flex items-center justify-center h-10 m-5 bg-transparent rounded-sm text-black;
 }
 
 .card {
-  @apply bg-yellow-200 w-40 h-60 flex items-center justify-center  flex-col text-base font-semibold uppercase m-5 rounded-xl;
+  @apply bg-gray-100 text-black w-40 h-60 flex items-center justify-center  flex-col text-xl font-light  uppercase m-5 rounded-xl;
 }
+
 .loading {
   @apply font-semibold text-2xl text-white;
 }
+
 .card-container {
   @apply flex items-center justify-center;
 }
 
 .menu {
-  @apply flex items-center justify-center mx-52 w-[1200px] h-[800px] my-20 p-60 rounded-xl bg-blend-saturation bg-transparent  border-2 border-white flex-row;
+  @apply bg-yellow-200 flex items-center justify-center  p-10 rounded-xl bg-blend-saturation bg-transparent  flex-row;
 }
 
 .fetched-cards {
-  @apply flex items-center justify-center w-[1000px] h-[700px];
+  @apply flex items-center justify-center;
 }
 /* .fetched-section {
   @apply w-[1200px] h-[800px];
