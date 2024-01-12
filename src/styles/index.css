@@ -42,11 +42,3 @@ body {
 .fetched-cards {
   @apply flex items-center justify-center;
 }
-/* .fetched-section {
-  @apply w-[1200px] h-[800px];
-} */
-/* .easy-level,
-.medium-level,
-.hard-level {
-  @apply flex items-start;
-} */
