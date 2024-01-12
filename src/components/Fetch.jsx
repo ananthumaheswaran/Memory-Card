@@ -2,9 +2,8 @@ import React, { useEffect, useState } from "react";
 
 const PokemonCard = ({ pokemon }) => (
   <div className="card">
-    {/* <h2>{pokemon.name}</h2> */}
+    <h2>{pokemon.name}</h2>
     <img src={pokemon.sprites.front_default} alt={pokemon.name} />
-    {/* Display other relevant information about the Pokémon */}
   </div>
 );
 
@@ -46,7 +45,7 @@ const Fetch = ({ numberOfPokemon }) => {
   return (
     <div>
       {isLoading ? (
-        <div className="flex items-center">Loading...</div>
+        <div className="loading">Loading...</div>
       ) : (
         <div className="card-container">
           {pokemonData.map((pokemon) => (
