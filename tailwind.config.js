@@ -7,6 +7,9 @@ export default {
         gif: "url('public/images/pokeBackground.png')",
       }),
     },
+    fontFamily: {
+      Pixelify: ["Pixelify Sans", "sans-serif"],
+    },
   },
   plugins: [],
 };
