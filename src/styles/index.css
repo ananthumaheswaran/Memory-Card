@@ -24,7 +24,7 @@ body {
 }
 
 .card {
-  @apply bg-gray-100 text-black w-44 h-60 flex items-center justify-center  flex-col text-xl font-light  uppercase m-5 rounded-xl;
+  @apply bg-gray-100 text-black w-44 h-60 flex items-center justify-center  flex-col text-xl font-light  uppercase m-5 rounded-xl cursor-pointer;
 }
 
 .loading {
