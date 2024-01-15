@@ -4,7 +4,7 @@ const Header = () => {
       <h1 className="header-title">PokéMemory</h1>
       <img
         className="header-image"
-        src=".\public\images\pokeball.png"
+        src=".\images\pokeball.png"
         alt="poke-ball"
       />
     </div>
