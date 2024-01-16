@@ -1,4 +1,3 @@
-import Cards from "./components/Cards";
 import Header from "./components/Header";
 import Core from "./components/Core";
 function App() {
@@ -6,7 +5,6 @@ function App() {
     <div>
       <Header />
       <Core />
-      <Cards />
     </div>
   );
 }
