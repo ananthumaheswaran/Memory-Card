@@ -1,10 +1,10 @@
 import Header from "./components/Header";
-import Core from "./components/Core";
+import GameMenu from "./components/GameMenu";
 function App() {
   return (
     <div>
       <Header />
-      <Core />
+      <GameMenu />
     </div>
   );
 }
