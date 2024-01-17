@@ -16,7 +16,7 @@ body {
 }
 
 .btn {
-  @apply bg-transparent  border-2 border-dotted border-black text-black  p-1 rounded-sm  text-2xl w-32 h-10;
+  @apply bg-white bg-white/50 text-black text-center m-1 p-1 rounded-lg text-xl w-32 h-10 hover:w-36 hover:h-11 hover:text-2xl;
 }
 
 .btn-exit {
