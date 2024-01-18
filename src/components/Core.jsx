@@ -1,9 +1,7 @@
-/////////////////////////////////////////// down important code //////////////////////////////////////////////////////// down important code /////////////////////////
-
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-const Core = () => {
+const Core = ({ cardLimit }) => {
   const [pokemonData, setPokemonData] = useState([]);
   const [shuffledData, setShuffledData] = useState([]);
   const [tilt, setTilt] = useState(false);
@@ -12,7 +10,7 @@ const Core = () => {
   const [bestScore, setBestScore] = useState(0);
   const [clickedPokemon, setClickedPokemon] = useState([]);
   const [isWinner, setIsWinner] = useState(false);
-  const cardLimit = 16;
+  // const cardLimit = setCardLimit;
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -29,7 +27,6 @@ const Core = () => {
         console.error("Error fetching Pokemon data:", error);
       }
     };
-
     fetchPokemonData();
   }, [cardLimit]);
 
@@ -38,7 +35,6 @@ const Core = () => {
     const newShuffledData = [...shuffledData].sort(() => Math.random() - 0.5);
     setShuffledData(newShuffledData);
   };
-
   const handleCardClick = (pokemon) => {
     setTilt(true);
     // Check if the pokemon has already been clicked
@@ -53,12 +49,10 @@ const Core = () => {
         ...prevClickedPokemon,
         pokemon,
       ]);
-
       // Update the best score if the current score is higher
       if (score + 1 > bestScore) {
         setBestScore(score + 1);
       }
-
       // Shuffle the contents of all cards, including images
       if (score + 1 === cardLimit) {
         setIsWinner(true);
@@ -69,7 +63,6 @@ const Core = () => {
         shufflePokemonData();
       }
     }
-
     setTimeout(() => {
       setTilt(false);
     }, 500);
@@ -77,7 +70,7 @@ const Core = () => {
 
   return (
     <div className="text-white flex-col flex items-center">
-      <div className="mb-4 text-center">
+      <div className="mb-4 text-center bg-black bg-black/40 rounded-xl py-2 px-20">
         <p>Score: {score}</p>
         <p>Best Score: {bestScore}</p>
         {isWinner && <p>Congratulations! You won!</p>}
