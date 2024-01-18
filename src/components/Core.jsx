@@ -22,7 +22,7 @@ const Core = ({ cardLimit }) => {
         setShuffledData(response.data.results.slice()); // Initial shuffle
         setTimeout(() => {
           setIsLoading(false);
-        }, 800);
+        }, 1000);
       } catch (error) {
         console.error("Error fetching Pokemon data:", error);
       }
@@ -70,44 +70,70 @@ const Core = ({ cardLimit }) => {
 
   return (
     <div className="text-white flex-col flex items-center">
-      <div className="mb-4 text-center bg-black bg-black/40 rounded-xl py-2 px-20">
-        <p>Score: {score}</p>
-        <p>Best Score: {bestScore}</p>
-        {isWinner && <p>Congratulations! You won!</p>}
-      </div>
-
       {isLoading ? (
-        <div>Loading...</div>
-      ) : (
-        <div className="flex flex-wrap justify-center mt-10 mx-20">
-          {shuffledData.map((pokemon, index) => (
-            <div
-              key={index}
-              className="card"
-              onClick={() => handleCardClick(pokemon)}
-            >
-              {tilt ? (
-                <div className="card">
-                  <img
-                    src="./images/card-back.png"
-                    alt="tilted side(pokemonlogo)"
-                  />
-                </div>
-              ) : (
-                <div>
-                  <img
-                    src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                      pokemonData.indexOf(pokemon) + 1
-                    }.png`}
-                    alt={pokemon.name}
-                    className="w-20 h-20 mx-auto mb-2"
-                  />
-                  <p className="text-center">{pokemon.name}</p>
-                </div>
-              )}
-            </div>
-          ))}
+        <div className="flex items-center justify-center flex-wrap p-32">
+          <h1 className=" flex items-center justify-center text-3xl text-black">
+            L
+            <img
+              src="public\images\pokeball.png"
+              alt="pokemon ball"
+              className="animate-spin hover:animate-none transition-transform duration-300 ease-in-out"
+            />
+            ading...
+          </h1>
         </div>
+      ) : (
+        <>
+          {isWinner ? (
+            <div className="flex items-center justify-center flex-col text-black p-20 bg-white bg-white/20 rounded-xl ">
+              <h1 className=" text-2xl ">Congratulations! You won!</h1>
+              <p className="flex items-center justify-center text-5xl font-extrabold">
+                {cardLimit} : {cardLimit}
+              </p>
+
+              <p className="flex items-center justify-center text-5xl mt-2">
+                🏆
+              </p>
+            </div>
+          ) : (
+            <>
+              <div className=" flex items-center flex-wrap justify-center text-lg mb-2 text-center">
+                <p className="m-2 text-black ">Score: {score}</p>
+                <p className="m-2 text-red-500 ">🏆Best Score: {bestScore}</p>
+                {/* {isWinner && <p className="m-2">Congratulations! You won!</p>} */}
+              </div>
+              <div className="flex flex-wrap justify-center mt-5 mb-20">
+                {shuffledData.map((pokemon, index) => (
+                  <div
+                    key={index}
+                    className="card"
+                    onClick={() => handleCardClick(pokemon)}
+                  >
+                    {tilt ? (
+                      <div className="card">
+                        <img
+                          src="./images/card-back.png"
+                          alt="tilted side(pokemonlogo)"
+                        />
+                      </div>
+                    ) : (
+                      <div>
+                        <img
+                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                            pokemonData.indexOf(pokemon) + 1
+                          }.png`}
+                          alt={pokemon.name}
+                          className="w-30 h-30 mx-auto mb-2 "
+                        />
+                        <p className="text-center">{pokemon.name}</p>
+                      </div>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </>
+          )}
+        </>
       )}
     </div>
   );
