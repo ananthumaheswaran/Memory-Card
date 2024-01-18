@@ -1,10 +1,8 @@
-import Header from "./components/Header";
-import GameMenu from "./components/GameMenu";
+import Game from "./game/Game";
 function App() {
   return (
     <div>
-      <Header />
-      <GameMenu />
+      <Game />
     </div>
   );
 }
