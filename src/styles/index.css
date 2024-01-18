@@ -4,25 +4,26 @@
 @tailwind utilities;
 
 body {
-  @apply h-[100vh] min-w-[280px] bg-gif bg-center bg-cover flex items-center justify-center font-Pixelify text-white;
+  @apply min-h-[100vh] min-w-[280px] bg-gif bg-center bg-cover flex items-center justify-center font-Pixelify text-white;
 }
 
 .header {
-  @apply flex items-center justify-center w-full;
+  @apply flex items-center justify-center;
 }
-
-.header-title {
-  @apply text-5xl;
+.header-title-1 {
+  @apply flex items-center text-red-600 text-5xl flex-wrap cursor-pointer;
+}
+.header-title-2 {
+  @apply flex items-center text-5xl flex-wrap cursor-pointer;
 }
 
 .btn {
-  @apply bg-white bg-white/50 text-black text-center m-1 p-1 rounded-lg text-xl w-32 h-10 hover:w-36 hover:h-11 hover:text-2xl;
+  @apply bg-black bg-black/50 hover:bg-black/100 text-white text-center m-1 p-1 rounded-lg text-xl w-32 h-10 hover:w-36 hover:h-11 hover:text-2xl;
 }
 
 .btn-exit {
   @apply w-20 flex items-center justify-center h-10 m-5 bg-transparent rounded-sm text-black;
 }
-
 .card {
   @apply bg-gray-100 text-black w-44 h-60 flex items-center justify-center  flex-col text-xl font-light  uppercase m-5 rounded-xl cursor-pointer;
 }
