@@ -4,11 +4,12 @@ export default {
   theme: {
     extend: {
       backgroundImage: (theme) => ({
-        gif: "url('/images/pokeBackground.png')",
+        gif: "url('public/images/pokeBackground.png')",
       }),
     },
     fontFamily: {
       Pixelify: ["Pixelify Sans", "sans-serif"],
+      Sans: ["sans-serif"],
     },
   },
   plugins: [],
