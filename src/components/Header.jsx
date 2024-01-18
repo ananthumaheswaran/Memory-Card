@@ -1,13 +1,23 @@
-const Header = () => {
+const Header = ({ setFetchStart }) => {
+  const handleExit = () => {
+    setFetchStart(false);
+  };
+
   return (
-    <div className="header">
-      <h1 className="header-title">PokéMemory</h1>
-      <img
-        className="header-image"
-        src=".\images\pokeball.png"
-        alt="poke-ball"
-      />
-    </div>
+    <header className="header">
+      <h1 className="header-title-1" onClick={handleExit}>
+        Poké
+      </h1>
+      <h1 className="header-title-2" onClick={handleExit}>
+        Mem
+        <img
+          className="header-image"
+          src=".\images\pokeball.png"
+          alt="poke-ball"
+        />
+        ry
+      </h1>
+    </header>
   );
 };
 
