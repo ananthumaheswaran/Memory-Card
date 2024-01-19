@@ -70,7 +70,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
     }, 500);
   };
 
-  const handleReturnBack = () => {
+  const handleQuit = () => {
     setFetchStart(false);
   };
 
@@ -158,7 +158,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
                       typeOf="button"
                       buttonText="Quit"
                       classForStyling="btn"
-                      onClick={handleReturnBack}
+                      onClick={handleQuit}
                     />
                   </div>
                 </div>
@@ -186,7 +186,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
                       typeOf="button"
                       buttonText="Quit"
                       classForStyling="btn"
-                      onClick={handleReturnBack}
+                      onClick={handleQuit}
                     />
                   </div>
                 </div>
