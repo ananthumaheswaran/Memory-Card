@@ -1,14 +1,11 @@
-const Header = ({ setFetchStart }) => {
-  const handleExit = () => {
-    setFetchStart(false);
-  }; // handleExit fuction is declared for returning back to game menu
-
+import handleQuit from "./Core"; // imported handleQuit function from Core.jsx to perform a return back function
+const Header = () => {
   return (
     <header className="header">
-      <h1 className="header-title-1" onClick={handleExit}>
+      <h1 className="header-title-1" onClick={handleQuit}>
         Poké
       </h1>
-      <h1 className="header-title-2" onClick={handleExit}>
+      <h1 className="header-title-2" onClick={handleQuit}>
         Mem
         <img
           className="header-image"
