@@ -89,7 +89,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
           <h1 className=" flex items-center justify-center text-3xl text-white">
             L
             <img
-              src="public\images\pokeball.png"
+              src=".\images\pokeball.png"
               alt="pokemon ball"
               className="animate-spin hover:animate-none transition-transform duration-300 ease-in-out"
             />
