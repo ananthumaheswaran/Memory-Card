@@ -1,7 +1,7 @@
 const Header = ({ setFetchStart }) => {
   const handleExit = () => {
     setFetchStart(false);
-  };
+  }; // handleExit fuction is declared for returning back to game menu
 
   return (
     <header className="header">
