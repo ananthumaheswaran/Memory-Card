@@ -98,10 +98,44 @@ const Core = ({ cardLimit, setFetchStart }) => {
         </div>
       ) : (
         <>
-          {isWinner ? (
-            <div className=" fixed  top-0 flex items-center justify-center flex-col w-full h-full p-4 bg-black/70">
+          <div className="flex items-center flex-wrap justify-center text-lg mb-2 text-center">
+            <p className="m-2 text-black ">Score: {score}</p>
+            <p className="m-2 text-red-500 ">🏆Best Score: {bestScore}</p>
+          </div>
+          <div className="flex flex-wrap justify-center mt-5 mb-20">
+            {shuffledData.map((card, index) => (
+              <div
+                key={index}
+                className="card"
+                onClick={() => handleCardClick(card)}
+              >
+                {tilt ? (
+                  <div className="card">
+                    <img
+                      src="./images/card-back.png"
+                      alt="tilted side(pokemonlogo)"
+                    />
+                  </div>
+                ) : (
+                  <div>
+                    <img
+                      src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
+                        pokemonData.indexOf(card) + 1
+                      }.png`}
+                      alt={card.name}
+                      className="w-30 h-30 mx-auto mb-2 "
+                    />
+                    <p className="text-center">{card.name}</p>
+                  </div>
+                )}
+              </div>
+            ))}
+          </div>
+
+          {isWinner && gameActive && (
+            <div className=" fixed top-0 flex items-center justify-center flex-col w-full h-full p-4 bg-black/80">
               <div className="flex items-center flex-col justify-center rounded-lg text-black bg-white/70 p-5 w-[400px] h-[300px]">
-                <h1 className=" text-4xl text-center my-5 ">
+                <h1 className=" text-4xl text-center my-2 mt-6 ">
                   Congratulations! You won! 🏆
                 </h1>
                 <p className="flex items-center justify-center text-5xl font-extrabold">
@@ -110,60 +144,35 @@ const Core = ({ cardLimit, setFetchStart }) => {
                 {/* <p className="flex items-center justify-center text-4xl mt-1">
                  
                 </p> */}
-                <div className="flex items-center justify-center w-40 h-20">
-                  <Button
-                    typeOf="button"
-                    buttonText="Quit"
-                    classForStyling="btn"
-                    onClick={handleReturnBack}
-                  />
+                <div className="flex items-center flex-row pb-5">
+                  <div className="w-40 h-20 flex items-center justify-center">
+                    <Button
+                      typeOf="button"
+                      buttonText="Play Again"
+                      classForStyling="btn"
+                      onClick={handlePlayAgain}
+                    />
+                  </div>
+                  <div className="flex items-center justify-center w-40 h-20">
+                    <Button
+                      typeOf="button"
+                      buttonText="Quit"
+                      classForStyling="btn"
+                      onClick={handleReturnBack}
+                    />
+                  </div>
                 </div>
               </div>
             </div>
-          ) : (
-            <>
-              <div className="flex items-center flex-wrap justify-center text-lg mb-2 text-center">
-                <p className="m-2 text-black ">Score: {score}</p>
-                <p className="m-2 text-red-500 ">🏆Best Score: {bestScore}</p>
-              </div>
-              <div className="flex flex-wrap justify-center mt-5 mb-20">
-                {shuffledData.map((card, index) => (
-                  <div
-                    key={index}
-                    className="card"
-                    onClick={() => handleCardClick(card)}
-                  >
-                    {tilt ? (
-                      <div className="card">
-                        <img
-                          src="./images/card-back.png"
-                          alt="tilted side(pokemonlogo)"
-                        />
-                      </div>
-                    ) : (
-                      <div>
-                        <img
-                          src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                            pokemonData.indexOf(card) + 1
-                          }.png`}
-                          alt={card.name}
-                          className="w-30 h-30 mx-auto mb-2 "
-                        />
-                        <p className="text-center">{card.name}</p>
-                      </div>
-                    )}
-                  </div>
-                ))}
-              </div>
-            </>
           )}
+
           {!gameActive && !isWinner && (
-            <div className="flex items-center flex-col fixed top-0 justify-center bg-black/70 w-full h-full">
+            <div className="flex items-center flex-col fixed top-0 justify-center bg-black/80 w-full h-full">
               <div className="flex items-center justify-center flex-col bg-white/70 rounded-lg w-[400px] h-[300px] p-5">
                 <h1 className="flex items-center justify-center text-center text-black text-4xl">
                   Better luck next time!
                 </h1>
-                <div className="flex items-center flex-row py-5">
+                <div className="flex items-center flex-row pb-5">
                   <div className="w-40 h-20 flex items-center justify-center">
                     <Button
                       typeOf="button"
