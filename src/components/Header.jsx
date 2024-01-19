@@ -12,7 +12,7 @@ const Header = ({ setFetchStart }) => {
         Mem
         <img
           className="header-image"
-          src=".\images\pokeball.png"
+          src="public\images\pokeball.png"
           alt="poke-ball"
         />
         ry
