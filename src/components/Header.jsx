@@ -1,5 +1,8 @@
-import handleQuit from "./Core"; // imported handleQuit function from Core.jsx to perform a return back function
-const Header = () => {
+const Header = ({ setFetchStart }) => {
+  const handleQuit = () => {
+    // Function to return back to menu
+    setFetchStart(false);
+  };
   return (
     <header className="header">
       <h1 className="header-title-1" onClick={handleQuit}>
