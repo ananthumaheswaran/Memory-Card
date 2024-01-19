@@ -1,16 +1,17 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
+import Button from "./Button";
 
-const Core = ({ cardLimit }) => {
-  const [pokemonData, setPokemonData] = useState([]);
-  const [shuffledData, setShuffledData] = useState([]);
+const Core = ({ cardLimit, setFetchStart }) => {
+  const [pokemonData, setPokemonData] = useState([]); // State for fetch data from API
+  const [shuffledData, setShuffledData] = useState([]); // State for duplicate fetched data into another array
   const [tilt, setTilt] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
-  const [score, setScore] = useState(0);
+  const [score, setScore] = useState(0); // State for update score of the game
   const [bestScore, setBestScore] = useState(0);
-  const [clickedPokemon, setClickedPokemon] = useState([]);
+  const [clickedPokemon, setClickedPokemon] = useState([]); // State for sort clicked cards
   const [isWinner, setIsWinner] = useState(false);
-  // const cardLimit = setCardLimit;
+  const [gameActive, setGameActive] = useState(true);
 
   useEffect(() => {
     const fetchPokemonData = async () => {
@@ -28,27 +29,28 @@ const Core = ({ cardLimit }) => {
       }
     };
     fetchPokemonData();
-  }, [cardLimit]);
+  }, []);
 
   const shufflePokemonData = () => {
     // Shuffling the Pokemon data randomly
     const newShuffledData = [...shuffledData].sort(() => Math.random() - 0.5);
     setShuffledData(newShuffledData);
   };
-  const handleCardClick = (pokemon) => {
+  const handleCardClick = (card) => {
+    if (!gameActive) return; // Do nothing if game is not active
     setTilt(true);
     // Check if the pokemon has already been clicked
-    if (clickedPokemon.includes(pokemon)) {
+    if (clickedPokemon.includes(card)) {
       // Game over, reset the score and clickedPokemon array
       setScore(0);
       setClickedPokemon([]);
+      // Lose Logic : If pokemon card has already clicked then
+      setGameActive(false);
+      setIsWinner(false);
     } else {
       // Increment the score and update clickedPokemon array
       setScore((prevScore) => prevScore + 1);
-      setClickedPokemon((prevClickedPokemon) => [
-        ...prevClickedPokemon,
-        pokemon,
-      ]);
+      setClickedPokemon((prevClickedPokemon) => [...prevClickedPokemon, card]);
       // Update the best score if the current score is higher
       if (score + 1 > bestScore) {
         setBestScore(score + 1);
@@ -68,11 +70,23 @@ const Core = ({ cardLimit }) => {
     }, 500);
   };
 
+  const handleReturnBack = () => {
+    setFetchStart(false);
+  };
+
+  const handlePlayAgain = () => {
+    setGameActive(true);
+    setIsWinner(false);
+    setScore(0);
+    setClickedPokemon([]);
+    shufflePokemonData();
+  };
+
   return (
     <div className="text-white flex-col flex items-center">
       {isLoading ? (
-        <div className="flex items-center justify-center flex-wrap p-32">
-          <h1 className=" flex items-center justify-center text-3xl text-black">
+        <div className="flex items-center justify-center bg-black/90 fixed top-0 w-full h-full p-32">
+          <h1 className=" flex items-center justify-center text-3xl text-white">
             L
             <img
               src="public\images\pokeball.png"
@@ -85,29 +99,39 @@ const Core = ({ cardLimit }) => {
       ) : (
         <>
           {isWinner ? (
-            <div className="flex items-center justify-center flex-col text-black p-20 bg-white bg-white/20 rounded-xl ">
-              <h1 className=" text-2xl ">Congratulations! You won!</h1>
-              <p className="flex items-center justify-center text-5xl font-extrabold">
-                {cardLimit} : {cardLimit}
-              </p>
-
-              <p className="flex items-center justify-center text-5xl mt-2">
-                🏆
-              </p>
+            <div className=" fixed  top-0 flex items-center justify-center flex-col w-full h-full p-4 bg-black/70">
+              <div className="flex items-center flex-col justify-center rounded-lg text-black bg-white/70 p-5 w-[400px] h-[300px]">
+                <h1 className=" text-4xl text-center my-5 ">
+                  Congratulations! You won! 🏆
+                </h1>
+                <p className="flex items-center justify-center text-5xl font-extrabold">
+                  {cardLimit} / {cardLimit}
+                </p>
+                {/* <p className="flex items-center justify-center text-4xl mt-1">
+                 
+                </p> */}
+                <div className="flex items-center justify-center w-40 h-20">
+                  <Button
+                    typeOf="button"
+                    buttonText="Quit"
+                    classForStyling="btn"
+                    onClick={handleReturnBack}
+                  />
+                </div>
+              </div>
             </div>
           ) : (
             <>
-              <div className=" flex items-center flex-wrap justify-center text-lg mb-2 text-center">
+              <div className="flex items-center flex-wrap justify-center text-lg mb-2 text-center">
                 <p className="m-2 text-black ">Score: {score}</p>
                 <p className="m-2 text-red-500 ">🏆Best Score: {bestScore}</p>
-                {/* {isWinner && <p className="m-2">Congratulations! You won!</p>} */}
               </div>
               <div className="flex flex-wrap justify-center mt-5 mb-20">
-                {shuffledData.map((pokemon, index) => (
+                {shuffledData.map((card, index) => (
                   <div
                     key={index}
                     className="card"
-                    onClick={() => handleCardClick(pokemon)}
+                    onClick={() => handleCardClick(card)}
                   >
                     {tilt ? (
                       <div className="card">
@@ -120,18 +144,45 @@ const Core = ({ cardLimit }) => {
                       <div>
                         <img
                           src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/${
-                            pokemonData.indexOf(pokemon) + 1
+                            pokemonData.indexOf(card) + 1
                           }.png`}
-                          alt={pokemon.name}
+                          alt={card.name}
                           className="w-30 h-30 mx-auto mb-2 "
                         />
-                        <p className="text-center">{pokemon.name}</p>
+                        <p className="text-center">{card.name}</p>
                       </div>
                     )}
                   </div>
                 ))}
               </div>
             </>
+          )}
+          {!gameActive && !isWinner && (
+            <div className="flex items-center flex-col fixed top-0 justify-center bg-black/70 w-full h-full">
+              <div className="flex items-center justify-center flex-col bg-white/70 rounded-lg w-[400px] h-[300px] p-5">
+                <h1 className="flex items-center justify-center text-center text-black text-4xl">
+                  Better luck next time!
+                </h1>
+                <div className="flex items-center flex-row py-5">
+                  <div className="w-40 h-20 flex items-center justify-center">
+                    <Button
+                      typeOf="button"
+                      buttonText="Play Again"
+                      classForStyling="btn"
+                      onClick={handlePlayAgain}
+                    />
+                  </div>
+                  <div className="flex items-center justify-center w-40 h-20">
+                    <Button
+                      typeOf="button"
+                      buttonText="Quit"
+                      classForStyling="btn"
+                      onClick={handleReturnBack}
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
           )}
         </>
       )}
