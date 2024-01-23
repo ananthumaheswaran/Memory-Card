@@ -6,35 +6,41 @@
 body {
   @apply min-h-[100vh] min-w-[280px] bg-gif bg-center bg-cover flex items-center justify-center  w-full font-Pixelify text-white select-none;
 }
-/*  heder component styles */
+
+/* Heder component styles */
 .header {
-  @apply flex items-center justify-center;
+  @apply flex items-center justify-center my-10;
 }
 .header-title-1 {
-  @apply flex items-center text-red-600 text-5xl flex-wrap cursor-pointer;
+  @apply flex items-center text-red-600 md:text-5xl sm:text-4xl flex-wrap cursor-pointer;
 }
 .header-title-2 {
-  @apply flex items-center text-5xl flex-wrap cursor-pointer;
+  @apply flex items-center md:text-5xl sm:text-4xl flex-wrap cursor-pointer;
 }
 
 /* Button component styles */
-.btn,
-.btn-easy,
-.btn-medium,
-.btn-hard {
-  @apply bg-white bg-white/80 hover:bg-black/80 text-black hover:text-white text-center m-1 p-1 rounded-lg text-xl w-32 h-10 hover:w-36 hover:h-11 hover:text-2xl;
+.btn {
+  @apply bg-white bg-white/80 hover:bg-black/80 text-black hover:text-white text-center m-1 p-1 rounded-lg md:text-xl md:w-32 md:h-10 md:hover:w-36 md:hover:h-11 md:hover:text-2xl sm:text-base sm:w-20 sm:h-10;
 }
-.btn-clicked-hard,
-.btn-clicked-medium,
-.btn-clicked-easy {
-  @apply bg-black/80 text-white w-36 h-11 text-2xl rounded-lg text-center;
-}
-
-.btn-exit {
-  @apply w-20 flex items-center justify-center h-10 m-5 bg-transparent rounded-sm text-black;
+.btn-container {
+  @apply flex items-center justify-center w-40 h-20;
 }
 
 /* Styles of cards in core component */
 .card {
-  @apply bg-gray-100 text-black w-44 h-60 flex items-center justify-center  flex-col text-xl font-light uppercase m-5 rounded-xl cursor-pointer;
+  @apply bg-gray-100 text-black flex items-center justify-center flex-col  font-light uppercase  rounded-lg cursor-pointer xl:m-5 xl:text-xl xl:w-44 xl:h-60 lg:w-32 lg:h-44 lg:m-2 md:m-4 md:w-36 md:h-48 sm:w-28 sm:h-40;
+}
+.card-container {
+  @apply flex items-center flex-wrap justify-center mt-5 mb-20 2xl:px-96 xl:px-16 lg:px-20 bg-black md:px-2;
+}
+
+/* Menu component styles */
+.menu-outer-container {
+  @apply flex items-center justify-center bg-black/20 rounded-xl xl:mx-20 md:my-10;
+}
+.menu-inner-container {
+  @apply bg-white/70 p-10 rounded-xl flex items-center justify-center flex-col;
+}
+.menu-heading {
+  @apply text-black lg:text-3xl md:text-2xl sm:text-lg;
 }
