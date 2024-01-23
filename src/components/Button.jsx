@@ -1,8 +1,16 @@
-const Button = ({ typeOf, onClick, buttonText, classForStyling }) => {
+const Button = ({
+  typeOf,
+  onClick,
+  buttonText,
+  classForStyling,
+  btnContainerStyle,
+}) => {
   return (
-    <button type={typeOf} onClick={onClick} className={classForStyling}>
-      {buttonText}
-    </button>
+    <div className={btnContainerStyle}>
+      <button type={typeOf} onClick={onClick} className={classForStyling}>
+        {buttonText}
+      </button>
+    </div>
   );
 };
 
