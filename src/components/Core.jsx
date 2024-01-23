@@ -83,7 +83,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
   };
 
   return (
-    <div className="text-white flex-col flex items-center">
+    <div className="flex-col flex items-center">
       {isLoading ? (
         <div className="flex items-center justify-center bg-black/90 fixed top-0 w-full h-full p-32">
           <h1 className=" flex items-center justify-center text-3xl text-white">
@@ -102,7 +102,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
             <p className="m-2 text-black ">Score: {score}</p>
             <p className="m-2 text-red-500 ">🏆Best Score: {bestScore}</p>
           </div>
-          <div className="flex flex-wrap justify-center mt-5 mb-20">
+          <div className="card-container">
             {shuffledData.map((card, index) => (
               <div
                 key={index}
@@ -141,26 +141,21 @@ const Core = ({ cardLimit, setFetchStart }) => {
                 <p className="flex items-center justify-center text-5xl font-extrabold">
                   {cardLimit} / {cardLimit}
                 </p>
-                {/* <p className="flex items-center justify-center text-4xl mt-1">
-                 
-                </p> */}
                 <div className="flex items-center flex-row pb-5">
-                  <div className="w-40 h-20 flex items-center justify-center">
-                    <Button
-                      typeOf="button"
-                      buttonText="Play Again"
-                      classForStyling="btn"
-                      onClick={handlePlayAgain}
-                    />
-                  </div>
-                  <div className="flex items-center justify-center w-40 h-20">
-                    <Button
-                      typeOf="button"
-                      buttonText="Quit"
-                      classForStyling="btn"
-                      onClick={handleQuit}
-                    />
-                  </div>
+                  <Button
+                    typeOf="button"
+                    buttonText="Play Again"
+                    classForStyling="btn"
+                    btnContainerStyle="btn-container"
+                    onClick={handlePlayAgain}
+                  />
+                  <Button
+                    typeOf="button"
+                    buttonText="Quit"
+                    classForStyling="btn"
+                    btnContainerStyle="btn-container"
+                    onClick={handleQuit}
+                  />
                 </div>
               </div>
             </div>
@@ -173,22 +168,20 @@ const Core = ({ cardLimit, setFetchStart }) => {
                   Better luck next time!
                 </h1>
                 <div className="flex items-center flex-row pb-5">
-                  <div className="w-40 h-20 flex items-center justify-center">
-                    <Button
-                      typeOf="button"
-                      buttonText="Play Again"
-                      classForStyling="btn"
-                      onClick={handlePlayAgain}
-                    />
-                  </div>
-                  <div className="flex items-center justify-center w-40 h-20">
-                    <Button
-                      typeOf="button"
-                      buttonText="Quit"
-                      classForStyling="btn"
-                      onClick={handleQuit}
-                    />
-                  </div>
+                  <Button
+                    typeOf="button"
+                    buttonText="Play Again"
+                    classForStyling="btn"
+                    btnContainerStyle="btn-container"
+                    onClick={handlePlayAgain}
+                  />
+                  <Button
+                    typeOf="button"
+                    buttonText="Quit"
+                    classForStyling="btn"
+                    btnContainerStyle="btn-container"
+                    onClick={handleQuit}
+                  />
                 </div>
               </div>
             </div>
