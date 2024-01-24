@@ -134,11 +134,11 @@ const Core = ({ cardLimit, setFetchStart }) => {
 
           {isWinner && gameActive && (
             <div className=" fixed top-0 flex items-center justify-center flex-col w-full h-full p-4 bg-black/80">
-              <div className="flex items-center flex-col justify-center rounded-lg text-black bg-white/70 p-5 w-[400px] h-[300px]">
-                <h1 className=" text-4xl text-center my-2 mt-6 ">
+              <div className="flex items-center flex-col justify-center rounded-lg text-black bg-white/70 p-5 md:w-[400px] md:h-[300px] sm:w-[300px] sm:h-[250px]">
+                <h1 className=" md:text-4xl text-center my-2 mt-6  sm:text-3xl">
                   Congratulations! You won! 🏆
                 </h1>
-                <p className="flex items-center justify-center text-5xl font-extrabold">
+                <p className="flex items-center justify-center font-extrabold md:text-5xl sm:text-4xl">
                   {cardLimit} / {cardLimit}
                 </p>
                 <div className="flex items-center flex-row pb-5">
@@ -163,8 +163,8 @@ const Core = ({ cardLimit, setFetchStart }) => {
 
           {!gameActive && !isWinner && (
             <div className="flex items-center flex-col fixed top-0 justify-center bg-black/80 w-full h-full">
-              <div className="flex items-center justify-center flex-col bg-white/70 rounded-lg w-[400px] h-[300px] p-5">
-                <h1 className="flex items-center justify-center text-center text-black text-4xl">
+              <div className="flex items-center justify-center flex-col bg-white/70 rounded-lg md:w-[400px] md:h-[300px] p-5 sm:w-[300px] sm:h-[250px]">
+                <h1 className="flex items-center justify-center text-center text-black md:text-4xl sm:text-3xl">
                   Better luck next time!
                 </h1>
                 <div className="flex items-center flex-row pb-5">
