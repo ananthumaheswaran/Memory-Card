@@ -28,7 +28,7 @@ body {
 
 /* Styles of cards in core component */
 .card {
-  @apply bg-gray-100 text-black flex items-center justify-center flex-col  font-light uppercase  rounded-lg cursor-pointer xl:m-5 xl:text-xl xl:w-44 xl:h-60 lg:w-32 lg:h-44 lg:m-2 md:m-4 md:w-36 md:h-48 sm:w-28 sm:h-40 sm:m-2;
+  @apply bg-gray-100 text-black flex items-center justify-center flex-col  font-light uppercase  rounded-lg cursor-pointer xl:m-5 xl:text-xl xl:w-44 xl:h-60 lg:w-32 lg:h-44 lg:m-2 md:m-4 md:w-36 md:h-48 sm:w-[117px] sm:h-[163px] sm:m-2;
 }
 .card-container {
   @apply flex items-center flex-wrap justify-center mt-5 mb-20 2xl:px-96 xl:px-16 lg:px-2 md:px-2;
