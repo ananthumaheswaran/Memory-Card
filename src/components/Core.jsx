@@ -123,7 +123,7 @@ const Core = ({ cardLimit, setFetchStart }) => {
                         pokemonData.indexOf(card) + 1
                       }.png`}
                       alt={card.name}
-                      className="w-30 h-30 mx-auto mb-2 "
+                      className="md:w-30 md:h-30 mx-auto mb-2 "
                     />
                     <p className="text-center">{card.name}</p>
                   </div>
