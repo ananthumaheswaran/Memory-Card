@@ -20,10 +20,10 @@ body {
 
 /* Button component styles */
 .btn {
-  @apply bg-white bg-white/80 hover:bg-black/80 text-black hover:text-white text-center m-1 p-1 rounded-lg md:text-xl md:w-32 md:h-10 md:hover:w-36 md:hover:h-11 md:hover:text-2xl sm:text-base sm:w-32 sm:h-10;
+  @apply bg-white bg-white/80 hover:bg-black/80 text-black hover:text-white text-center m-1 p-1 md:rounded-lg md:text-xl md:w-32 md:h-10 md:hover:w-36 md:hover:h-11 md:hover:text-2xl sm:text-base sm:hover:w-32 sm:hover:h-10 sm:w-28 sm:h-9 sm:rounded-md;
 }
 .btn-container {
-  @apply flex items-center justify-center md:w-40 md:h-20 sm:w-40 sm:h-14;
+  @apply flex items-center justify-center md:w-40 md:h-20 sm:w-32 sm:h-14;
 }
 
 /* Styles of cards in core component */
